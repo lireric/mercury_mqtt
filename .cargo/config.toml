@@ -1,0 +1,16 @@
+[http]
+# Extend full request timeout to 5 minutes (default is 30s)
+timeout = 300
+# Disable low-speed cancellation entirely for unstable lines
+low-speed-limit = 0
+# Force HTTP/1.1 to prevent HTTP/2 multiplexing drops over flaky networks
+multiplexing = false
+
+[net]
+# Retry failed network requests up to 5 times
+retry = 5
+
+#[target.mips-unknown-linux-musl]
+#rustflags = ["-C", "target-feature=+crt-static"]
+[target.mips-unknown-linux-musl]
+rustflags = ["-C", "link-arg=-static"]

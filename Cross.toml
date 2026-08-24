@@ -1,0 +1,39 @@
+[target.mips-unknown-linux-musl]
+image = "ghcr.io/cross-rs/mips-unknown-linux-musl:0.2.5"
+
+[target.mipsel-unknown-linux-musl]
+image = "ghcr.io/cross-rs/mipsel-unknown-linux-musl:0.2.5"
+
+#dockerfile = "Dockerfile.mipsel"
+
+[target.mipsel-unknown-linux-gnu]
+image = "ghcr.io/cross-rs/mipsel-unknown-linux-gnu:latest"
+dockerfile = "Dockerfile.mipsel"
+
+#[target.armv7-unknown-linux-gnueabihf]
+#image = "ghcr.io/cross-rs/armv7-unknown-linux-gnueabihf:0.2.5"
+
+#[target.aarch64-unknown-linux-gnu]
+#image = "ghcr.io/cross-rs/aarch64-unknown-linux-gnu:0.2.5"
+
+
+# Pre-build commands to install dependencies
+pre-build = [
+#    "apt-get update",
+#    "apt-get install -y libssl-dev pkg-config openssl",
+]
+
+# Environment variables
+#[target.armv7-unknown-linux-gnueabihf.env]
+#OPENSSL_DIR = "/usr"
+#OPENSSL_LIB_DIR = "/usr/lib/arm-linux-gnueabihf"
+#OPENSSL_INCLUDE_DIR = "/usr/include"
+#RUST_BACKTRACE = "1"
+
+[target.mipsel-unknown-linux-gnu.env]
+passthrough = [
+    "CARGO_HTTP_TIMEOUT",
+    "CARGO_HTTP_LOW_SPEED_LIMIT",
+    "CARGO_HTTP_MULTIPLEXING",
+    "CARGO_NET_RETRY"
+]

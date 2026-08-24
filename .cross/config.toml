@@ -1,0 +1,2 @@
+#[target.mips-unknown-linux-musl]
+#env = { RUSTFLAGS = "-C link-arg=-static" }
